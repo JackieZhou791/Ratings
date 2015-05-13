@@ -47,7 +47,6 @@ class PlayersViewController: UITableViewController {
         return cell
 
     }
-    */
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PlayerCell", forIndexPath: indexPath) as! UITableViewCell //1
         
@@ -63,6 +62,17 @@ class PlayersViewController: UITableViewController {
             ratingImageView.image = self.imageForRating(player.rating)
         }
         return cell
+    }
+    */
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCellWithIdentifier("PlayerCell", forIndexPath: indexPath) as! PlayerCell
+            
+            let player = players[indexPath.row] as Player
+            cell.nameLabel.text = player.name
+            cell.gameLabel.text = player.game
+            cell.ratingImageView.image = imageForRating(player.rating)
+            return cell
     }
     
     func imageForRating(rating:Int) -> UIImage? {
@@ -126,5 +136,13 @@ class PlayersViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func cancelToPlayersViewController(segue:UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func savePlayerDetail(segue:UIStoryboardSegue) {
+        
+    }
 
 }
